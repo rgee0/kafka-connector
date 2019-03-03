@@ -157,6 +157,12 @@ $ kubectl exec -n openfaas -t -i $BROKER -- sh
 ./opt/kafka_2.12-0.11.0.1/bin/kafka-console-producer.sh
 ```
 
+With the `$BROKER` variable still set, view the list of messages on a given topic:
+
+```
+$ kubectl exec -n openfaas -t -i $BROKER -- /opt/kafka_2.12-0.11.0.1/bin/kafka-console-consumer.sh --bootstrap-server kafka:9092 --topic faas-request --from-beginning
+```
+
 Now check the connector logs to see the figlet function was invoked:
 
 ```bash
