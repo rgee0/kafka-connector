@@ -11,7 +11,7 @@ Goals:
 
 ## Conceptual design
 
-![](overview.jpg)
+![](./images/overview.svg)
 
 This diagram shows the Kafka connector on the left hand side. It is responsible for querying the API Gateway for a list of functions. It will then build up a map or table of which functions have advertised an interested in which topics.
 
