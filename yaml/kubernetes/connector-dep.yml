@@ -31,6 +31,8 @@ spec:
             value: "true"
           - name: secret_mount_path
             value: "/var/secrets/"
+          - name: topic_delimiter
+            value: ","
         volumeMounts:
             - name: auth
               readOnly: true

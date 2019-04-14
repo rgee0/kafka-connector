@@ -163,13 +163,21 @@ func buildConnectorConfig() connectorConfig {
 		printResponseBody = (val == "1" || val == "true")
 	}
 
+	delimiter := ","
+	if val, exists := os.LookupEnv("topic_delimiter"); exists {
+		if len(val) > 0 {
+			delimiter = val
+		}
+	}
+
 	return connectorConfig{
 		ControllerConfig: &types.ControllerConfig{
-			UpstreamTimeout:   upstreamTimeout,
-			GatewayURL:        gatewayURL,
-			PrintResponse:     printResponse,
-			PrintResponseBody: printResponseBody,
-			RebuildInterval:   rebuildInterval,
+			UpstreamTimeout:          upstreamTimeout,
+			GatewayURL:               gatewayURL,
+			PrintResponse:            printResponse,
+			PrintResponseBody:        printResponseBody,
+			RebuildInterval:          rebuildInterval,
+			TopicAnnotationDelimiter: delimiter,
 		},
 		Topics: topics,
 		Broker: broker,
